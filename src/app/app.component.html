@@ -1,38 +1,40 @@
 <div class="container">
 <div class="content">
-  <form action="" class="wiki_search">
-    <input type="text">
-    <button class="btn">Искать</button>
-  </form>
+  <div class="wiki_search">
+    <input type="text" [(ngModel)]="text">
+    <button class="btn" (click)="onSearch(text)">Искать</button>
+  </div>
 
   <table class="wiki_table">
     <thead>
       <tr>
-        <td>Номер страницы (pageid)</td>
-        <td>Заголовок (title)</td>
-        <td>Превью (snippet, в формате html)</td>
-        <td>Время (timestamp)</td>
+        <td>Номер страницы</td>
+        <td>Заголовок</td>
+        <td>Превью</td>
+        <td>Время</td>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let it of wiki">
+      <tr *ngFor="let it of wiki | slice: (page-1)*lengthOfPage :page*lengthOfPage">
         <td>{{it.pageid}}</td>
-        <td>{{it.snippet}}</td>
-        <td>{{it.timestamp}}</td>
+        <td>{{it.title}}</td>
+        <td>
+          {{it.snippet}}
+        </td>
         <td>{{it.timestamp}}</td>
       </tr>
     </tbody>
   </table>
 
-  <div class="pagination">
-    <button class="btn left_pagination">Left</button>
-
+  <div class="pagination" *ngIf="wiki.length>0">
+    <a class="btn left_pagination" (click)="onClickLeft()">Назад</a>
     <div class="pagination__page">
-      <div class="page_now">3</div>
-      <div class="page_all">20</div>
+      Страница
+      {{page}}
+      из
+      {{ allPageCount }}
     </div>
-
-    <button class="btn right_pagination">Right</button>
+    <a class="btn right_pagination" (click)="onClickRight()">Далее</a>
   </div>
 </div>
 </div>
