@@ -1,0 +1,53 @@
+.content {
+  margin-top: 2rem;
+}
+
+.wiki_search {
+  font-size: 1.2rem;
+
+  input {
+    padding: 0.4rem 0.6rem;
+    min-width: 16rem;
+    margin-right: 0.8rem;
+  };
+
+  button {
+    padding: 0.4rem 1rem;
+  }
+}
+
+.wiki_table {
+  margin-top: 1rem;
+
+  td {
+    padding: 0.8rem;
+  }
+}
+
+.pagination {
+  margin-top: 1rem;
+  display: flex;
+}
+
+.pagination__page {
+  display: flex;
+  margin: 0 1rem;
+  border: 1px solid gray;
+  .page_now {
+    padding: 0.2rem;
+    border-right: 1px solid gray;
+  }
+
+  .page_all {
+    padding: 0.2rem;
+  }
+}
+
+.left-pagination {
+
+}
+
+.right_pagination {
+
+}
+
